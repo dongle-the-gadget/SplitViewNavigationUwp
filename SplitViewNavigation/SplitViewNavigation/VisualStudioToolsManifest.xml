@@ -1,0 +1,8 @@
+﻿<FileList>
+  <File Reference="SplitViewNavigation.winmd">
+    <ToolboxItems VSCategory="SplitView Navigation">
+      <Item Type="SplitViewNavigation.SplitView"/>
+      <Item Type="SplitViewNavigation.NavigationItem"/>
+    </ToolboxItems>
+  </File>
+</FileList>

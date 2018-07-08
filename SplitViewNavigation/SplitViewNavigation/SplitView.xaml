@@ -1,0 +1,45 @@
+﻿<UserControl
+    x:Class="SplitViewNavigation.SplitView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SplitViewNavigation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Splitter.IsPaneOpen" Value="False"/>
+                        <Setter Target="Splitter.DisplayMode" Value="CompactOverlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Splitter.IsPaneOpen" Value="True"/>
+                        <Setter Target="Splitter.DisplayMode" Value="CompactInline"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <SplitView DisplayMode="CompactOverlay" Name="Splitter" PaneBackground="{StaticResource SystemControlAcrylicWindowBrush}">
+            <SplitView.Pane>
+                <Grid>
+                    <ListView SelectionChanged="TopListView_SelectionChanged" VerticalAlignment="Top" Name="TopListView">
+                        
+                    </ListView>
+                    <ListView SelectionChanged="BottomListView_SelectionChanged" VerticalAlignment="Bottom" Name="BottomListView"></ListView>
+                </Grid>
+            </SplitView.Pane>
+            <Frame Name="rootFrame"/>
+        </SplitView>
+    </Grid>
+
+</UserControl>
